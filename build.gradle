@@ -8,10 +8,11 @@ buildscript {
     }
 }
 
-apply plugin: "io.ratpack.ratpack-groovy"
+apply plugin: "io.ratpack.ratpack-java"
 apply plugin: "com.github.johnrengelman.shadow"
 apply plugin: "idea"
-apply plugin: "eclipse"
+
+mainClassName = 'app.RatpackApp'
 
 repositories {
     jcenter()
@@ -23,6 +24,7 @@ dependencies {
     runtime 'org.slf4j:slf4j-simple:1.7.25'
 
     compile ratpack.dependency('thymeleaf')
+    compile ratpack.dependency('guice')
 
     testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
 }
